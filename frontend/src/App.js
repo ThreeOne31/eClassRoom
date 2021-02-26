@@ -29,20 +29,21 @@ class App extends React.Component{
     accordion(event){
         // Toggle the clicked panel display between none and block
         let panel = event.target.parentElement.nextElementSibling
-        // Keep track of the open panel
-        this.panels.push(panel) 
-        // Set the previous panel display to none if any(i.e if defined)
-        let prevPanel = this.panels.pop()
 
         if (panel.style.display === "block") {
             panel.style.display = "none"
         } else {
             panel.style.display = "block"
         }
-        
+
+        // Set the previous panel display to none if any(i.e if defined)
+        let prevPanel = this.panels.pop()
+
         if(prevPanel !== undefined){
             prevPanel.style.display = "none"
-        }     
+        }    
+        // Keep track of the open panel
+        this.panels.push(panel) 
     }
 
     render(){
